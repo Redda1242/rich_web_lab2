@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github User Search</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="usernameInput" placeholder="Username">
+        <button id="searchBtn">Search</button>
+
+        <div class="profile">
+            <img id="avatar" src="" alt="User Profile">
+            <div>
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Username:</strong> <span id="username"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Location:</strong> <span id="location"></span></p>
+                <p><strong>Number of Gists:</strong> <span id="gists"></span></p>
+            </div>
+        </div>
+
+        <div class="repos">
+            <div class="repo" id="repoTemplate">
+                <p><strong>Name:</strong> <span class="repoName"></span></p>
+                <p><strong>Description:</strong> <span class="repoDescription"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
