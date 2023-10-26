@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONPlaceholder API Functional Programming</title>
+</head>
+<body>
+
+<script>
+    // 1. List all of the post titles having more than six words:
+    fetch("http://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(posts => {
+        const longTitles = posts
+        .filter(post => post.title.split(" ").length > 6)
+        .map(post => post.title);
+
+        console.log("Titles with more than six words:", longTitles);
+    });
+
+    // 2. Show a word frequency map for all of the body contents of the posts:
+    fetch("http://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(posts => {
+        const frequencyMap = posts
+        .flatMap(post => post.body.split(/\W+/))  // split each body by non-word characters
+        .reduce((acc, word) => {
+            word = word.toLowerCase();
+            acc[word] = (acc[word] || 0) + 1;
+            return acc;
+        }, {});
+
+        console.log("Word frequency map:", frequencyMap);
+    });
+</script>
+
+</body>
+</html>
