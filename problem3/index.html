@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <input type="text" id="usernameInput" placeholder="Username">
+    
+<div class="container">
+    <div class="search-section">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username">
         <button id="searchBtn">Search</button>
-
-        <div class="profile">
-            <img id="avatar" src="" alt="User Profile">
-            <div>
-                <p><strong>Name:</strong> <span id="name"></span></p>
-                <p><strong>Username:</strong> <span id="username"></span></p>
-                <p><strong>Email:</strong> <span id="email"></span></p>
-                <p><strong>Location:</strong> <span id="location"></span></p>
-                <p><strong>Number of Gists:</strong> <span id="gists"></span></p>
-            </div>
+    </div>
+    <div class="info-section">
+        <div class="profile-section">
+            <img id="avatar" src="#" alt="User avatar" class="avatar-image">
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Username:</strong> <span id="user"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+            <p><strong>Number of Gists:</strong> <span id="gists"></span></p>
         </div>
-
-        <div class="repos">
-            <div class="repo" id="repoTemplate">
-                <p><strong>Name:</strong> <span class="repoName"></span></p>
-                <p><strong>Description:</strong> <span class="repoDescription"></span></p>
+        <div class="repos-section">
+            <div class="repo" id="repo-template" hidden>
+                <p><strong>Name:</strong> <span class="repo-name"></span></p>
+                <p><strong>Description:</strong> <span class="repo-desc"></span></p>
             </div>
         </div>
     </div>
+</div>
 
     <script src="script.js"></script>
 </body>

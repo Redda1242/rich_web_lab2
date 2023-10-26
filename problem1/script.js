@@ -1,22 +1,31 @@
+//get elements from html
 const contactForm = document.getElementById("contacts_form");
 const contactTable = document.getElementById("contacts_table");
 const nameHeader = document.getElementById("name_header");
 const searchInput = document.getElementById("search");
 const errorDiv = document.getElementById("error");
 
+//array to story all contacts
 let contacts = [];
 
+//function to add contacts to table, take in name, mobile and email
 function addContactToTable(name, mobile, email) {
+
+    //create row
     const newRow = contactTable.getElementsByTagName('tbody')[0].insertRow();
+
+    //create columns
     const nameCell = newRow.insertCell(0);
     const mobileCell = newRow.insertCell(1);
     const emailCell = newRow.insertCell(2);
 
+    // add text to columns
     nameCell.textContent = name;
     mobileCell.textContent = mobile;
     emailCell.textContent = email;
 }
 
+//function to add contacts
 function addContacts(name, mobile, email) {
     contacts.push({ name, mobile, email });
     addContactToTable(name, mobile, email);
