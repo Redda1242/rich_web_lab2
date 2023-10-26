@@ -22,6 +22,22 @@ function addContacts(name, mobile, email) {
     addContactToTable(name, mobile, email);
 }
 
+// Validation functions
+function isValidName(name) {
+    const regex = /^[A-Za-z\s]{1,20}$/;
+    return regex.test(name);
+}
+
+function isValidMobile(mobile) {
+    const regex = /^\d{10}$/;
+    return regex.test(mobile);
+}
+
+function isValidEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return regex.test(email) && email.length <= 40;
+}
+
 
 // Event listener for Add Contact button
 document.getElementById("add_contact").addEventListener("click", () => {
@@ -29,6 +45,27 @@ document.getElementById("add_contact").addEventListener("click", () => {
     const mobile = document.getElementById("mobile").value.trim();
     const email = document.getElementById("email").value.trim();
 
+    let errorMessage = "";
+
+    if (!isValidName(name)) {
+        errorMessage += "Name should contain only alphabets, spaces and be less than or equal to 20 characters. ";
+    }
+
+    if (!isValidMobile(mobile)) {
+        errorMessage += "Mobile should contain exactly 10 numbers. ";
+    }
+
+    if (!isValidEmail(email)) {
+        errorMessage += "Email should be valid and less than 40 characters in length. ";
+    }
+
+    if (errorMessage) {
+        errorDiv.textContent = errorMessage;
+        errorDiv.style.display = "block";
+        return;
+    } else {
+        errorDiv.style.display = "none";
+    }
 
     addContacts(name, mobile, email);
 
@@ -40,7 +77,8 @@ document.getElementById("add_contact").addEventListener("click", () => {
 
 // Sort the table by name on header click
 let nameSortOrder = 1;
-nameHeader.addEventListener("click", () => {.
+nameHeader.addEventListener("click", () => {
+
     contacts.forEach(contact => {
         addContactToTable(contact.name, contact.mobile, contact.email);
     });
